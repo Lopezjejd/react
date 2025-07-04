@@ -1,0 +1,77 @@
+
+.x-card{
+    font-family: sans-serif;
+    display: flex;
+    width: 400px;
+    background-color: #111;
+    flex-direction: row;
+    padding: 10px;
+}
+.x-card-header {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+.x-card-img{
+    width: 12%;
+    height: 100%;
+    object-fit: cover;
+    border-radius:100% ;
+}
+.x-card-info{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 50%;
+    gap: 0;
+}
+.x-card-info-name{
+    padding: 0;
+    margin-top: 0;
+    
+}
+.x-card-info-user{
+    font-size: .8rem;
+    color:#bbb;
+    padding: 0%;
+    margin: 0;
+}
+.x-card-aside-button{
+    color: #111;
+    border-radius: 8px;
+    border: none;
+    padding: 4px 9px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: .9rem;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: all 0.3s ease;
+    width: max-content;
+}
+.x-card-aside-button-following{
+    background-color: transparent;
+    border: 2px solid #00c3ff;
+    color: #00c3ff;
+    transition: all 0.2s ease;
+}
+
+.x-card-aside-button:hover{
+    background-color: #00c3ff;
+}
+.x-card-aside-button-following:hover{
+ border-width: 2px;
+    background-color: transparent;
+    color: #00c3ff;
+    box-shadow: 0 0 8px #00c3ff;
+}
+.x-card-aside-button-unfollowing, .x-card-aside-button-unfollowing:hover{
+    background-color:transparent;
+    color: rgb(222, 10, 10);
+    border: 2px solid rgb(230, 24, 24);
+    transition: all 0.2s ease;
+}
