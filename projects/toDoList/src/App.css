@@ -1,0 +1,15 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 10px;
+  padding-top: 30px;
+  color: #fff;
+  width: 100%;
+  margin: auto;
+  margin-top: 30px;
+  max-width: 800px;
+  min-height: 600px;
+  background-color: #454242; /* Updated background color */
+}
