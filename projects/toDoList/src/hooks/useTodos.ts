@@ -4,18 +4,17 @@ import type { Todo } from "../types/todo";
 // Hook para manejar las tareas
 
 export function useTodos() { //usamos use para indicar que es un hook
-  const [todos, setTodos] = useState<Todo[]>([])//creamos un estado de tareas con un array vacio
+  const [todos, setTodos] = useState<Todo[]>(()=>{
+    const stored = localStorage.getItem('todos')
+    return stored ? JSON.parse(stored) : [] // si hay tareas guardadas, las devuelve, si no, devuelve un array vacio
+  })//creamos un estado de tareas con un array vacio
   //pero espesificamos que vbamos a usar un array de tipo Todo 
 
-  // Cargar tareas desde localStorage al iniciar
-  useEffect(() => { // al iniciar el componente, cargamos las tareas guardadas
-    const stored = localStorage.getItem('todos')
-    if (stored) setTodos(JSON.parse(stored))
-  }, [])//array vacio para que solo se ejecute una vez al montar el componente
 
   // Guardar tareas en localStorage cuando cambien
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
+    console.log('Tareas guardadas en localStorage:', todos)
   }, [todos])//si el estado se modifica, se guarda en localStorage
 
   const addTodo = (title: string) => {

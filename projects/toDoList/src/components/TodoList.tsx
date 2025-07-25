@@ -1,15 +1,18 @@
 import type { Todo } from "../types/todo"
 import { TodoItem } from "./TodoItem"
+
 type Props = {
-  todos: Todo[]
+  todos: Todo[];
+  deleteTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
 }
 
-export function TodoList({ todos }: Props) {
+export function TodoList({ todos,deleteTodo,toggleTodo }: Props) {
   return (
-    <ul>
+    <ul className="todo-ul">
       {todos.map(todo => (
-        <li key={todo.id}>
-          <TodoItem todo={todo} /> {/* Componente para cada tarea */}
+        <li  className="todo-list" key={todo.id}>
+          <TodoItem todo={todo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}  /> {/* Componente para cada tarea */}
         </li>
       ))}
     </ul>

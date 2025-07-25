@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import { TodoForm } from './components/TodoForm'
 import { TodoList } from './components/TodoList'
 
@@ -13,7 +13,7 @@ const {todos,addTodo, toggleTodo, deleteTodo } = useTodos() // usamos el hook pa
     <div className='app'>
       <h1>List of tasks</h1>
       <TodoForm onAddTodo={addTodo}></TodoForm>
-      <TodoList todos={todos}></TodoList>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}></TodoList>
     </div>
   
     </>
