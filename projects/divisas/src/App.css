@@ -1,0 +1,60 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.converter-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Divide en 2 columnas iguales */
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.584);
+  backdrop-filter: blur(10px);
+}
+
+.conversor-input,
+.conversor-result {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Hacer que los elementos internos se expandan */
+.conversor-input > *,
+.conversor-result > * {
+  flex: 1 1 auto; /* grow | shrink | basis */
+}
+.conversor-input input
+ {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.coin{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+ cursor: pointer;
+ background-color: transparent;
+ color:rgba(208, 0, 255, 0.584) ;
+ font-weight: 700;
+}
+.conversor-result p{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
