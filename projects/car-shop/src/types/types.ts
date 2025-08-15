@@ -3,5 +3,9 @@ export  type Product ={
     name: string;
     price: number;
     image: string;
-    quantity?: number;
+    quantity: number;
 }
+export const ActionType = { 
+    remove:'Remove from cart',
+    add:'Add to Cart'
+}as const;
