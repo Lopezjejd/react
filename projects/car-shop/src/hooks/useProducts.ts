@@ -45,6 +45,12 @@ const filterByPrice = () => {
     const filteredProducts = [...cart].sort((a, b) => b.price - a.price);
     setCart(filteredProducts);
 }
+const IncreaseAmount = (product: Product) => {
+    setCart((prev) => prev.map((p) => p.id === product.id ? { ...p, quantity: (p.quantity || 1) + 1 } : p));
+}
+const DecreaseAmount = (product: Product) => {
+    setCart((prev) => prev.map((p) => p.id === product.id ? { ...p, quantity: (p.quantity || 1) - 1 } : p));
+}
     const removeFromCart = (product: Product) => {
         setCart((prev) => prev.filter((p) => p.id !== product.id));
     };
@@ -54,6 +60,8 @@ const filterByPrice = () => {
         cart,
         addToCart,
         removeFromCart,
-        filterByPrice
+        filterByPrice,
+        IncreaseAmount,
+        DecreaseAmount
     };
 }

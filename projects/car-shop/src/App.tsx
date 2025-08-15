@@ -5,7 +5,7 @@ import { ProductItem } from './components/Product'
 import { useProducts } from './hooks/useProducts'
 import { ActionType } from './types/types'
 function App() {
-const { products, cart, addToCart, removeFromCart,filterByPrice } = useProducts()
+const { products, cart, addToCart, removeFromCart,filterByPrice,IncreaseAmount,DecreaseAmount } = useProducts()
      const totalPrice = cart.reduce((acc, product) => acc + product.price, 0)
   
   return (
@@ -26,7 +26,14 @@ const { products, cart, addToCart, removeFromCart,filterByPrice } = useProducts(
       <ul className='product-list'>
        
         {cart.map(product => (
-          <ProductItem key={product.id} product={product} buttonAct={removeFromCart} type={ActionType.remove} />
+          <ProductItem 
+          key={product.id} 
+          product={product} 
+          buttonAct={removeFromCart} 
+          type={ActionType.remove}
+          onIncrease={IncreaseAmount}
+          onDecrease={DecreaseAmount}
+           />
         ))}
       </ul>
     </>

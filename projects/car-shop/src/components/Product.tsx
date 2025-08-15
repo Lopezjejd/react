@@ -2,15 +2,28 @@ import type { Product } from '../types/types';
 import { useState } from 'react';
 import { ActionType } from '../types/types';
 
+interface ProductItemProps {
+  product: Product
+  buttonAct: (product: Product, quantity: number) => void // También mejoramos el tipo any
+  type: typeof ActionType[keyof typeof ActionType]
+  onIncrease?: (product: Product) => void
+  onDecrease?: (product: Product) => void
+}
 
-export function ProductItem({ product,buttonAct,type }:
-     { product: Product,buttonAct: any,type: string }) {
-        const [quantity, setQuantity] = useState(1);
+export function ProductItem({ 
+  product, 
+  buttonAct, 
+  type,
+  onIncrease, // nuevo prop opcional
+  onDecrease  // nuevo prop opcional
+}: ProductItemProps) {
+    const [quantity, setQuantity] = useState(1);
 
     const handleClick = () => {
-       buttonAct(product,quantity)
+       buttonAct(product, quantity)
     }
-   return(
+
+    return(
         <li>
         <div className="img-container">
             <img src={product.image} alt={product.name} />
@@ -18,19 +31,28 @@ export function ProductItem({ product,buttonAct,type }:
         <h2>{product.name}</h2>
    
         <span>${product.price}</span>
-        <input 
-             onChange={(e) => setQuantity(Number(e.target.value))} 
-             type="number" 
-             name="cantidad" 
-             id="quantiti" 
-             value={product.quantity || quantity}
-             required
-             step={1}
-                min={1}
-                max={10}
-           />
-      
-          
+        <span>{type === ActionType.add ? quantity.toString() : product.quantity.toString()}</span>
+        <div>
+         <button 
+         disabled={type === ActionType.add ? quantity >= 10 : product.quantity >= 10}
+         onClick={() => {
+            if (type === ActionType.add) {
+                setQuantity(quantity + 1)
+            } else if (onIncrease) {
+                onIncrease(product)
+            }
+         }}>+</button>
+         <button
+         disabled={type === ActionType.add ? quantity <= 1 : product.quantity <= 1}
+          onClick={() => {
+            if (type === ActionType.add) {
+                setQuantity(quantity - 1)
+            } else if (onDecrease) {
+                onDecrease(product)
+            }
+          }}>-</button>
+        </div>
+        
         <button onClick={handleClick}>{type}</button>
         </li>
    )
