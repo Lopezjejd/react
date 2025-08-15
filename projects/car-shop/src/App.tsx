@@ -6,7 +6,7 @@ import { useProducts } from './hooks/useProducts'
 import { ActionType } from './types/types'
 function App() {
 const { products, cart, addToCart, removeFromCart,filterByPrice,IncreaseAmount,DecreaseAmount } = useProducts()
-     const totalPrice = cart.reduce((acc, product) => acc + product.price, 0)
+     const totalPrice = cart.reduce((acc, product) => acc + (product.price * product.quantity) , 0)
   
   return (
     <>
@@ -21,7 +21,7 @@ const { products, cart, addToCart, removeFromCart,filterByPrice,IncreaseAmount,D
       <span>cantidad de productos {cart.length}
 
       </span>
-      <span>precio total{totalPrice}</span>
+      <span> precio total{totalPrice}</span>
        <button onClick={filterByPrice}>filtrar por precio</button>
       <ul className='product-list'>
        

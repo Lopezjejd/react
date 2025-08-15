@@ -1,8 +1,8 @@
 import { useState } from 'react';
-
-// Mock data de productos
 import type { Product } from '../types/types';
- const mockProducts: Product[] = [
+
+/** Datos de ejemplo para productos */
+const mockProducts: Product[] = [
   {
     id: 1,
     name: 'Gaming PC',
@@ -21,11 +21,27 @@ import type { Product } from '../types/types';
 
 
 
+/**
+ * Hook personalizado para gestionar productos y carrito de compras
+ * @returns {Object} Objeto con productos, carrito y métodos para manipularlos
+ * - products: Lista de productos disponibles
+ * - cart: Productos en el carrito
+ * - addToCart: Añade o incrementa productos en el carrito
+ * - removeFromCart: Elimina un producto del carrito
+ * - filterByPrice: Ordena productos del carrito por precio
+ * - IncreaseAmount: Incrementa cantidad de un producto en el carrito
+ * - DecreaseAmount: Reduce cantidad de un producto en el carrito
+ */
 export function useProducts() {
     const [products] = useState<Product[]>(mockProducts);
     const [cart, setCart] = useState<Product[]>([]);
 
-    const addToCart = (product: Product,quantity:number) => {
+    /** 
+     * Añade un producto al carrito o incrementa su cantidad si ya existe
+     * @param product Producto a añadir
+     * @param quantity Cantidad a añadir
+     */
+    const addToCart = (product: Product, quantity: number) => {
         setCart((prev) => {
             // Check if the product is already in the cart
             const existingProduct = prev.find((p) => p.id === product.id);
@@ -41,16 +57,32 @@ export function useProducts() {
             return  [...prev, newProduct];
         });
     };
-const filterByPrice = () => {
-    const filteredProducts = [...cart].sort((a, b) => b.price - a.price);
-    setCart(filteredProducts);
-}
-const IncreaseAmount = (product: Product) => {
-    setCart((prev) => prev.map((p) => p.id === product.id ? { ...p, quantity: (p.quantity || 1) + 1 } : p));
-}
-const DecreaseAmount = (product: Product) => {
-    setCart((prev) => prev.map((p) => p.id === product.id ? { ...p, quantity: (p.quantity || 1) - 1 } : p));
-}
+
+    /** 
+     * Ordena productos del carrito por precio (mayor a menor)
+     */
+    const filterByPrice = () => {
+        const filteredProducts = [...cart].sort((a, b) => b.price - a.price);
+        setCart(filteredProducts);
+    }
+
+    /**
+     * Incrementa en 1 la cantidad de un producto en el carrito
+     */
+    const IncreaseAmount = (product: Product) => {
+        setCart((prev) => prev.map((p) => p.id === product.id ? { ...p, quantity: (p.quantity || 1) + 1 } : p));
+    }
+
+    /**
+     * Reduce en 1 la cantidad de un producto en el carrito
+     */
+    const DecreaseAmount = (product: Product) => {
+        setCart((prev) => prev.map((p) => p.id === product.id ? { ...p, quantity: (p.quantity || 1) - 1 } : p));
+    }
+
+    /**
+     * Elimina completamente un producto del carrito
+     */
     const removeFromCart = (product: Product) => {
         setCart((prev) => prev.filter((p) => p.id !== product.id));
     };
