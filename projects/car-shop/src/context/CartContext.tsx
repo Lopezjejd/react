@@ -8,7 +8,7 @@ const mockProducts: Product[] = [
     id: 1,
     name: "Gaming PC",
     price: 1200,
-    image: "https://imgs.search.brave.com/auJV-lNim2zTG56JiiwfY9JJwfrFrOsEAtPQ61nxW6Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbmZv/bWF4cGFyaXMuY29t/LzI3MTMxLWhvbWVf/ZGVmYXVsdC9wYy1n/YW1lci1lbGV2ZW4u/anBn",
+    image: "https://imgs.search.brave.com/G5kOK2bhs5fGEyns9x8_a7B_cesvpkH8rz07pXvWnFM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waXNj/ZXMuYmJ5c3RhdGlj/LmNvbS9pbWFnZTIv/QmVzdEJ1eV9VUy9p/bWFnZXMvcHJvZHVj/dHMvZmY5NmU0OTUt/YWQ5ZC00OWZmLTk3/YmUtZmUxNTE0OGE3/NDA3LmpwZzttYXhI/ZWlnaHQ9NDI3O21h/eFdpZHRoPTY0MD9m/b3JtYXQ9d2VicA",
     quantity: 1,
   },
   {
@@ -29,6 +29,7 @@ type CartContextType = {
   filterByPrice: () => void;
   IncreaseAmount: (product: Product) => void;
   DecreaseAmount: (product: Product) => void;
+    totalPrice: () => number; // 👈 falta esto
 };
 //tipamos las funciones que vamos a usar en el contexto
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -81,7 +82,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const removeFromCart = (product: Product) => {
     setCart((prev) => prev.filter((p) => p.id !== product.id));
   };
-
+const totalPrice = () => {
+  return cart.reduce((acc, product) => acc + (product.price * product.quantity) , 0)
+}
   return (
     <CartContext.Provider
       value={{
@@ -92,6 +95,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         filterByPrice,
         IncreaseAmount,
         DecreaseAmount,
+        totalPrice
       }}
     >
       {children}
