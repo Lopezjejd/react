@@ -9,6 +9,7 @@ import App from './App.tsx'
 
 import Home from './pages/Home.tsx'
 import Car from './pages/Car.tsx'
+import ProductDetail from './pages/ProductDetail.tsx'
 
 const router = createBrowserRouter([//definicion de rutas
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([//definicion de rutas
       {
         path: "car",
         element: <Car />
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetail />,
       }
     ]
   }

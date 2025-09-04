@@ -1,5 +1,5 @@
 // context/CartContext.tsx
-import { createContext, useContext, useState,type ReactNode } from "react";
+import { createContext, useContext,useMemo, useState,type ReactNode } from "react";
 import type { Product } from "../types/types";
 
 /** Datos de ejemplo */
@@ -24,12 +24,13 @@ const mockProducts: Product[] = [
 type CartContextType = {
   products: Product[];
   cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>; // 👈
   addToCart: (product: Product, quantity: number) => void;
   removeFromCart: (product: Product) => void;
   filterByPrice: () => void;
   IncreaseAmount: (product: Product) => void;
   DecreaseAmount: (product: Product) => void;
-    totalPrice: () => number; // 👈 falta esto
+    totalPrice: number; // 👈 falta esto
 };
 //tipamos las funciones que vamos a usar en el contexto
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -82,14 +83,22 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const removeFromCart = (product: Product) => {
     setCart((prev) => prev.filter((p) => p.id !== product.id));
   };
-const totalPrice = () => {
-  return cart.reduce((acc, product) => acc + (product.price * product.quantity) , 0)
-}
+const totalPrice = useMemo(()=>{
+  return cart.reduce((total, product) => total + product.price * (product.quantity || 1), 0);
+
+
+
+},[cart])
+//guardamos el carrito en el localstorage
+
+
+
   return (
     <CartContext.Provider
       value={{
         products,
         cart,
+        setCart, // 👈
         addToCart,
         removeFromCart,
         filterByPrice,
@@ -102,6 +111,7 @@ const totalPrice = () => {
     </CartContext.Provider>
   );
 };
+
 
 /** Hook para consumir fácil */
 export const useCart = () => {

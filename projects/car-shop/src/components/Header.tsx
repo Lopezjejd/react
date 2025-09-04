@@ -2,32 +2,26 @@
 import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+
+  const className = "font-bold px-2.5 py-1.5 rounded hover:bg-cyan-700 transition-all"
   return (
-    <header className="header">
+    <header className="flex-row bg-cyan-900 text-white p-4 sticky top-0 z-10 shadow-md ">
       <nav>
-        <ul>
-          <li>
-            {/* 
-              NavLink: Similar a un enlace <a> pero para navegación INTERNA en la SPA
-              
-              to: Define a qué ruta navegar
-              
-              className: Puede recibir una función que nos dice si el enlace está activo
-              { isActive } → isActive es true cuando estamos en esa ruta
-            */}
+        <ul className='flex gap-20 justify-center'>
+<li>
+
             <NavLink 
-              to="/" 
-              className={({ isActive }) => isActive ? 'active' : ''}
-            >
+              className={({ isActive }) => isActive ?  `${className} bg-cyan-700 ` : `${className}`}
+              to="/" >
               Inicio
             </NavLink>
           </li>
-          <li>
+          <li >
             <NavLink 
               to="/car"
-              className={({ isActive }) => isActive ? 'active' : ''}
+              className={({ isActive }) => isActive ?  `${className} bg-cyan-700 ` : `${className}`}
             >
-              carrito
+              Carrito
 
               
             </NavLink>
