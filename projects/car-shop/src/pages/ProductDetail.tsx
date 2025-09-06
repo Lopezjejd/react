@@ -8,7 +8,11 @@ function ProductDetail() {
       if (!product) {
         return <div>producto no encontrado</div>
       }
+
       return (
+  console.log("PRODUCTO:", product),
+console.log("IMAGEN:", product?.image),
+
         <div>
             <h1>{product.name}</h1>
             <img src={product.image} alt={product.name} />

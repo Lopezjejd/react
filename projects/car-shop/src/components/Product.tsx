@@ -25,8 +25,8 @@ export function ProductItem({ product, type }: ProductItemProps) {
   };
 
   return (
-    <li className='flex flex-col items-center w-xs bg-gray-50 border-2 border-gray-200 
-       rounded-lg p-4 shadow-md group '>
+    <li className='flex flex-col items-center w-xs bg-gray-50 border-1 border-gray-900
+        p-4   group '>
     <div className="w-full h-1/3 overflow-hidden">
         <img src={product.image} alt={product.name} className='group-hover:scale-105 transition-all' />
       </div>

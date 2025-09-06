@@ -38,7 +38,7 @@ useEffect(() => {
             <button className='px-2 py-1 bg-cyan-700 cursor-pointer text-amber-50'
              onClick={filterByPrice}>filtrar por precio</button>
        </div>
-      <ul className='m-auto grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] place-items-center p-4'>
+      <ul className='m-auto grid gap-4 grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] place-items-center p-4'>
        
         {cart.map(product => (
           <ProductItem product={product} type={ActionType.remove} key={product.id}/>
