@@ -13,10 +13,16 @@ function ProductDetail() {
   console.log("PRODUCTO:", product),
 console.log("IMAGEN:", product?.image),
 
-        <div>
-            <h1>{product.name}</h1>
-            <img src={product.image} alt={product.name} />
-            <p>Precio: ${product.price}</p>
+        <div className='flex  items-center  p-4'>
+            <img className='w-1/2 h-auto object-cover rounded-lg shadow-md'
+             src={product.image} alt={product.name} />
+ <div className='ml-4 flex flex-col w-1/2  items-center' >
+           <div className=' flex flex-col bg-blue-200 p-6 rounded-lg font-bold shadow-md w-full'>
+              <span className='inline-block bg-amber-50 w-[8rem] m-1 p-1 pl-0.5'>{product.name}</span>
+          
+            <span className='inline-block bg-amber-50 w-[8rem] m-1 p-1 pl-0.5'>Precio: ${product.price}</span>
+           </div>
+ </div>
             
         </div>
       )
