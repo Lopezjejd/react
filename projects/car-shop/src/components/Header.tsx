@@ -8,7 +8,7 @@ const Header = () => {
     "font-bold px-2.5 py-1.5 rounded hover:bg-cyan-700 transition-all";
 
   return (
-    <header className="bg-cyan-900 text-white p-4 sticky top-0 z-20 shadow-md relative">
+    <header className="bg-cyan-900 text-white p-4 sticky top-0 z-20 shadow-md ">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <h1 className="text-xl font-bold">Mi Tienda</h1>
