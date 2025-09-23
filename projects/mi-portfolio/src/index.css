@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-principal: #0A74DA;    /* Azul vibrante */
+  --color-secundario: #084C8A;   /* Azul oscuro para hover */
+  --color-fondo: #0D1117;       /* Negro suave */
+  --color-texto-base: #FFFFFF;   /* Blanco puro */
+  --color-texto-sec: #A9B1BB;    /* Gris claro */
+  --color-acento: #F9A826;      /* Amarillo/Naranja llamativo */
+}
