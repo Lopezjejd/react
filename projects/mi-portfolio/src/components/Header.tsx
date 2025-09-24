@@ -17,14 +17,14 @@ export function Header() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);// Escucha cambios en el tamaño de la ventana
+    return () => window.removeEventListener('resize', handleResize);// Limpia el listener al desmontar
   }, []);
 
   return (
-    <header className="w-full sticky">
+    <header className="w-full sticky top-0 z-50 shadow-md shadow-principal/10">
       <nav className="flex items-center justify-between px-8 py-4 bg-fondo relative text-texto-base">
-        <h2>LopezDev</h2>
+        <h2  className="font-extrabold">Lopez<span className="text-principal">Dev</span></h2>
         <ul
           // Aplica clases condicionalmente con una plantilla de cadena
           className={`
@@ -34,11 +34,11 @@ export function Header() {
             sm:flex-row sm:static sm:bg-transparent sm:flex
           `}
         >
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Technologies</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Skills</a></li>
-          <li><a href="#">About Me</a></li>
+          <li><a className="hover:text-secundario transition-all" href="#">Home</a></li>
+          <li><a className="hover:text-secundario transition-all" href="#">Technologies</a></li>
+          <li><a className="hover:text-secundario transition-all" href="#">Projects</a></li>
+          <li><a className="hover:text-secundario transition-all" href="#">Skills</a></li>
+          <li><a className="hover:text-secundario transition-all" href="#">About Me</a></li>
         </ul>
         <button
           onClick={toggleMenu}
