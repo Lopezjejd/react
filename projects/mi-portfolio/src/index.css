@@ -9,3 +9,14 @@
   --color-texto-sec: #A9B1BB;    /* Gris claro */
   --color-acento: #F9A826;      /* Amarillo/Naranja llamativo */
 }
+@keyframes brillo {
+from{
+  left: -20%;
+}
+to{
+  left: 400%;
+}
+}
+@layer utilities {
+  .animate-brillo { animation: brillo  2s   infinite ; animation-fill-mode: both; }
+}
