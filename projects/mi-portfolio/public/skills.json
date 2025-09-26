@@ -1,0 +1,30 @@
+[
+    {
+        "name": "JavaScript",
+        "url": "/images/js.png"
+    },
+    {
+        "name": "React",
+        "url": "/images/react.png"
+    },
+    {
+        "name": "CSS3",
+        "url": "/images/css.png"
+    },
+    {
+        "name": "HTML5",
+        "url": "/images/html.png"
+    },
+    {
+        "name": "tailwindcss",
+        "url": "/images/tailwind.png"
+    },
+    {
+        "name": "Git",
+        "url": "/images/git.png"
+    },
+    {
+        "name": "TypeScript",
+        "url": "/images/ts.png"
+    }
+]
