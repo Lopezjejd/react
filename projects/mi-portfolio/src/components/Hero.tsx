@@ -2,8 +2,8 @@ import profilePic  from '../assets/images/perfil.webp';
 import SocialLinks from './SocialLinks';
 export function Hero() {
     return (
-        <section className="flex flex-col lg:flex-row items-center justify-center text-center gap-4 h-[80vh] px-4">
-         <div className="max-w-2xl">
+        <section className="flex flex-col lg:flex-row items-center justify-center text-center gap-4 h-[100vh] ">
+         <div className="max-w-xl ">
             <img src={profilePic} alt="imagen de un programador web"
             className='w-1/2 rounded-full m-auto' />
                     <h1  className="font-extrabold text-3xl mb-5 ">
@@ -11,7 +11,7 @@ export function Hero() {
                     </h1>
                     <SocialLinks></SocialLinks>
          </div>
-         <div>
+         <div className='text-center  max-w-2xl pt-10'>
           <p className="text-2xl leading-snug text-white max-w-xs text-left m-auto mb-5 pl-10
           font-bold ">
              <span className="block">Hi, I’m López</span>
@@ -20,10 +20,16 @@ export function Hero() {
              <span className="block font-normal text-[1.1rem]">Passionate about creating modern and dynamic web experiences</span>
              </p>
          <div className='flex flex-col gap-4 flex-wrap '>
-            <button className='w-[50%] cursor-pointer hover:rounded-[5px] transition-all py-1 m-auto font-semibold bg-principal'>Technologies</button>
+            <button className='w-[50%] cursor-pointer hover:rounded-[5px] transition-all py-1 m-auto font-semibold bg-principal'><a href="#skills">Technologies</a></button>
             <button className='w-[50%] cursor-pointer hover:rounded-[5px] transition-all py-1 m-auto font-semibold bg-principal'>Projects</button>
             <button className='w-[50%] cursor-pointer hover:rounded-[5px] transition-all py-1 m-auto font-semibold bg-principal'>Skills</button>
             <button className='w-[50%] cursor-pointer hover:rounded-[5px] transition-all py-1 m-auto font-semibold bg-principal'>About Me</button>
+
+
+             <svg className='m-auto  animate-bounce'
+              width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M12 19L5 12L6.41 10.59L11 15.17V5H13V15.17L17.59 10.59L19 12L12 19Z" fill="white"/>
+             </svg>
 
          </div>
          </div>

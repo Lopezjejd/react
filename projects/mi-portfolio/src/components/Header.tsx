@@ -28,10 +28,14 @@ export function Header() {
         <ul
           // Aplica clases condicionalmente con una plantilla de cadena
           className={`
-            ${isOpen ? "flex" : "hidden"}
-            flex-col gap-6 fixed top-14 left-0
-            bg-fondo/98 p-1
-            sm:flex-row sm:static sm:bg-transparent sm:flex
+            ${isOpen ? "left-[0]" : "left-[-100%]"  }
+            flex font-bold text-xl
+            flex-col gap-10 fixed top-18 left-0
+            pl-5
+            w-1/3 h-[80vh] transition-all
+            bg-gray-950/80 p-1
+            sm:flex-row sm:static sm:bg-transparent sm:flex sm:w-auto sm:h-auto sm:pl-0 sm:gap-6
+            sm:transition-none sm:font-normal sm:text-base
           `}
         >
           <li><a className="hover:text-secundario transition-all" href="#">Home</a></li>
