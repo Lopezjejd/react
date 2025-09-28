@@ -17,7 +17,7 @@ export function Technologies() {
 
 
     return(
-     <section className=" bg-fondo bg-cover bg-center py-20" id="skills">
+     <section className=" bg-fondo bg-cover bg-center pb-20" id="skills">
        
         <h2 className="text-3xl text-white font-bold  text-center mb-10 ">Technologies</h2>
         <p className="text-sm text-center text-white/70 mt-1 mb-10">Tecnologias Front-End por las que me destaco</p>

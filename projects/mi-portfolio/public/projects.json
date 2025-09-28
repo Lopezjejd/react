@@ -4,7 +4,8 @@
         "descripcion": "una web para ver informacion del juego resident evil 4 remake",
         "imagen": "/images/r4.png",
         "github": "https://github.com/Lopezjejd/r4",
-        "preview": "https://r4-pearl.vercel.app/"
+        "preview": "https://r4-pearl.vercel.app/",
+        "techs": ["React", "TailwindCSS", "JavaScript"]
     },
         {
         "titulo": "Resident evil 4 remake",
@@ -12,20 +13,24 @@
         "imagen": "/images/r4.png",
         "github": "https://github.com/Lopezjejd/r4",
         "preview": "https://r4-pearl.vercel.app/"
+        ,
+        "techs": ["React", "TailwindCSS", "JavaScript"]
     },
         {
         "titulo": "Resident evil 4 remake",
         "descripcion": "una web para ver informacion del juego resident evil 4 remake",
         "imagen": "/images/r4.png",
         "github": "https://github.com/Lopezjejd/r4",
-        "preview": "https://r4-pearl.vercel.app/"
+        "preview": "https://r4-pearl.vercel.app/",
+        "techs": ["React", "TailwindCSS", "JavaScript"]
     },
         {
         "titulo": "Resident evil 4 remake",
         "descripcion": "una web para ver informacion del juego resident evil 4 remake",
         "imagen": "/images/r4.png",
         "github": "https://github.com/Lopezjejd/r4",
-        "preview": "https://r4-pearl.vercel.app/"
+        "preview": "https://r4-pearl.vercel.app/",
+        "techs": ["React", "TailwindCSS", "JavaScript"]
     }
 
 ]

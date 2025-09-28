@@ -7,7 +7,7 @@
   --color-fondo: #0D1117;       /* Negro suave */
   --color-texto-base: #FFFFFF;   /* Blanco puro */
   --color-texto-sec: #A9B1BB;    /* Gris claro */
-  --color-acento: #F9A826;      /* Amarillo/Naranja llamativo */
+  --color-acento: #663399;      /* Amarillo/morado llamativo */
 }
 @keyframes brillo {
 from{

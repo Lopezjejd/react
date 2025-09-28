@@ -16,6 +16,7 @@ export type Slide = {
   descripcion?: string;
   github?: string;
   preview?: string;
+  techs?:string[];
 };
 
 export interface CarouselHandle {
@@ -142,7 +143,7 @@ const Carousel = forwardRef<CarouselHandle, CarouselProps>(
     <img
       src={s.image}
       alt={s.alt ?? s.title ?? s.titulo ?? `slide-${i}`}
-      className="absolute inset-0 w-50% h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-300"
+      className="absolute inset-0 w-120% h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-300"
       loading="lazy"
     />
 
@@ -152,8 +153,18 @@ const Carousel = forwardRef<CarouselHandle, CarouselProps>(
     <div className="absolute left-4 bottom-6 bg-black/50 text-white p-3 rounded-md backdrop-blur-sm max-w-xs">
       <h3 className="font-semibold text-sm md:text-base">{s.title ?? s.titulo}</h3>
       {s.caption ?? s.descripcion ? (
-        <p className="text-xs md:text-sm opacity-90">{s.caption ?? s.descripcion}</p>
+        <p className="text-xs md:text-sm opacity-90 ">{s.caption ?? s.descripcion}</p>
+       
       ) : null}
+
+       <div className="mt-2 flex flex-wrap gap-1">
+        {s.techs &&(
+          s.techs.map((tech,index) =>(
+            <span key={index} className="bg-principal rounded-sm text-sm px-1 odd:bg-acento">{tech}</span>
+          ))
+        ) }
+       </div>
+
     </div>
   </div>
 </article>

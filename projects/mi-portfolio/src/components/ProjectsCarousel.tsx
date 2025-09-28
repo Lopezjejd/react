@@ -8,6 +8,7 @@ type ProjectItem = {
   imagen: string;
   github?: string;
   preview?: string;
+  techs?:string[];
 };
 
 const ProjectsCarousel: React.FC = () => {
@@ -75,6 +76,7 @@ const ProjectsCarousel: React.FC = () => {
     descripcion: p.descripcion,
     github: p.github,
     preview: p.preview,
+    techs:p.techs
   }));
 
   const onSlideClick = (s: Slide) => {
@@ -165,7 +167,7 @@ const ProjectsCarousel: React.FC = () => {
                       href={selected.preview}
                       target="_blank"
                       rel="noreferrer"
-                      className="px-4 py-2 rounded-md bg-gradient-to-br from-sky-500 to-indigo-500 text-white font-medium shadow hover:scale-105 transition"
+                      className="px-4 py-2 rounded-md bg-principal text-white font-medium shadow hover:scale-105 transition"
                     >
                       Ver Demo
                     </a>
