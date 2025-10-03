@@ -25,15 +25,47 @@ to{
     transform: scale(1);
   }
   to{
-    transform: scale(1.05);
+    transform: scale(1.15);
   }
 }
 @layer size-a{
   .animate-size{
+    animation-delay: 1s;
     animation-name: size;
-    animation-duration: 1s;
+    animation-duration: .9s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
     animation-direction:alternate;
    }
+}
+@keyframes appear {
+  from{
+    left: -100%;
+    opacity: 0;
+
+  }
+  to{
+    left: 0;
+    opacity: 1;
+  }
+}
+@layer appear-a{
+  .animate-appear{
+    animation:appear 1s  ;
+  }
+}
+@keyframes appear-reverse {
+  from{
+    left:300%;
+    opacity: 0;
+  }
+  to{
+    left: 0;
+    opacity: 1;
+  }
+}
+@layer appear-b {
+  .animate-appear-reverse{
+    animation:appear-reverse 1s  ;
+  }
 }

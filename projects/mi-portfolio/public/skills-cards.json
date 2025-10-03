@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "image": "/images/equipo.jpg",
+        "title": "Me gusta aprender en equipo",
+        "description": "Colaboración Ágil (Git/GitHub): Dominio de flujos de trabajo en equipo (Gitflow, PRs, revisiones de código) y metodologías ágiles (Scrum/Kanban)."
+    },
+    {
+        "id": "2",
+        "image": "/images/IA.webp",
+        "title": "Desarrollar con IA",
+        "description": "Utilizar la IA de manera adecuada e inteligente paera mejorar la experiencia del usuario y optimizar procesos."
+    },
+    {
+        "id": "3",
+        "image": "/images/ingles.webp",
+        "title": "Ingles",
+        "description": "Manejo del idioma importante para acceder a documentación técnica y colaborar en equipos internacionales."
+    }
+]

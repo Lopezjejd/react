@@ -3,6 +3,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Technologies } from './components/Technologies'
 import ProjectsCarousel from './components/ProjectsCarousel'
+import Skills from './components/Skills'
 function App() {
 
 
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <Technologies />
       <ProjectsCarousel />
+      <Skills />
     </main>
       
     </>

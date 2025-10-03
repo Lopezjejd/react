@@ -12,16 +12,16 @@ type ProjectItem = {
 };
 
 const ProjectsCarousel: React.FC = () => {
-  const [projects, setProjects] = useState<ProjectItem[] | null>(null);
+  const [projects, setProjects] = useState<ProjectItem[] | null>(null);//null para diferenciar entre no cargado y cargado con 0 items
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<ProjectItem | null>(null);
-  const carouselRef = useRef<CarouselHandle | null>(null);
+  const carouselRef = useRef<CarouselHandle | null>(null);//useref para controlar carrusel desde thumbnails
 
   useEffect(() => {
-    const ac = new AbortController();
+    const ac = new AbortController();//para cancelar fetch si el componente se desmonta
     setLoading(true);
-    fetch("/projects.json", { signal: ac.signal })
+    fetch("/projects.json", { signal: ac.signal })//signal para abortar fetch si es necesario
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -55,7 +55,7 @@ const ProjectsCarousel: React.FC = () => {
           </div>
         </div>
       </div>
-    );
+    );//skeleton loading state para mejorar UX es importante tener un buen estado de carga
   }
 
   if (error || !projects) {
@@ -67,8 +67,9 @@ const ProjectsCarousel: React.FC = () => {
       </div>
     );
   }
-
-  // map projects -> slides
+//manejo de estados: cargando, error, datos cargados
+  
+// map projects -> slides
   const slides: Slide[] = projects.map((p, i) => ({
     id: `${p.titulo}-${i}`,
     image: p.imagen,
@@ -77,8 +78,10 @@ const ProjectsCarousel: React.FC = () => {
     github: p.github,
     preview: p.preview,
     techs:p.techs
-  }));
-
+  }));//usamos i para asegurar id unico en caso de titulos repetidos
+  //el map es ideal para transformar datos en componentes o estructuras necesarias
+ //y se pone en una constante para evitar recalcular en cada render
+ // y mantener el componente limpio asi que a la larga si projects cambia se recalcula slides
   const onSlideClick = (s: Slide) => {
     // when user clicks a slide, open modal with project details
     setSelected({
@@ -91,10 +94,10 @@ const ProjectsCarousel: React.FC = () => {
   };
 
   return (
-    <section className="max-w-5xl mx-auto p-6">
+    <section className="max-w-5xl mx-auto p-6" id="projects">
       <header className="mb-6 text-center">
         <h2 className="text-3xl font-bold text-white">Proyectos</h2>
-        <p className="text-sm text-white/70 mt-1">Click en cualquiera para ver detalles — responsive y elegante.</p>
+        <p className="text-sm text-white/70 mt-1"><span className="text-principal font-bold text-lg">Click</span> en cualquiera para ver detalles — responsive y elegante.</p>
       </header>
 
       <div className="bg-gradient-to-br from-slate-900/90 via-black/75 to-slate-900/95 p-6 rounded-2xl border border-white/5 shadow-xl">
@@ -142,7 +145,8 @@ const ProjectsCarousel: React.FC = () => {
           <div className="relative max-w-3xl w-full bg-gradient-to-br from-slate-900/95 to-black rounded-2xl p-6 border border-white/5 shadow-2xl">
             <button
               onClick={() => setSelected(null)}
-              className="absolute right-4 top-4 text-white/80 hover:text-white"
+              className="z-40 bg-principal rounded-2xl px-1.5
+              font-extrabold absolute right-4 top-4 text-white hover:text-white  "
               aria-label="Cerrar modal"
             >
               ✕

@@ -143,14 +143,16 @@ const Carousel = forwardRef<CarouselHandle, CarouselProps>(
     <img
       src={s.image}
       alt={s.alt ?? s.title ?? s.titulo ?? `slide-${i}`}
-      className="absolute inset-0 w-120% h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-300"
+      className="absolute inset-0 w-[25%] h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-300"
       loading="lazy"
     />
 
     {/* semi-overlay to improve text contrast */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent
+     to-black/10 pointer-events-none" />
 
-    <div className="absolute left-4 bottom-6 bg-black/50 text-white p-3 rounded-md backdrop-blur-sm max-w-xs">
+    <div className="absolute left-4 bottom-6 bg-black/50
+     text-white p-3 rounded-md backdrop-blur-sm max-w-[250px] sm:max-w-xl ">
       <h3 className="font-semibold text-sm md:text-base">{s.title ?? s.titulo}</h3>
       {s.caption ?? s.descripcion ? (
         <p className="text-xs md:text-sm opacity-90 ">{s.caption ?? s.descripcion}</p>
@@ -177,7 +179,8 @@ const Carousel = forwardRef<CarouselHandle, CarouselProps>(
         <button
           onClick={prev}
           aria-label="Anterior"
-          className="absolute left-3 top-1/2 -translate-y-1/2 transition-all h-1/4 w-1/20
+          className="absolute left-3 top-1/4 sm:top-1/2 -translate-y-1/2 transition-all h-1/4 sm:w-1/20 w-1/10
+
            rounded-full bg-principal/95 text-white p-2 hover:bg-black/60 focus:outline-none"
         >
           ‹
@@ -185,7 +188,7 @@ const Carousel = forwardRef<CarouselHandle, CarouselProps>(
         <button
           onClick={next}
           aria-label="Siguiente"
-          className="absolute right-3 top-1/2 -translate-y-1/2 h-1/4 w-1/20
+          className="absolute right-3 top-1/4 sm:top-1/2 -translate-y-1/2 h-1/4 sm:w-1/20 w-1/10 
            rounded-full bg-principal/95 text-white p-2 hover:bg-black/60 focus:outline-none"
         >
           ›
